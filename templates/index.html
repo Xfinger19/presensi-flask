@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">Sistem Presensi Digital Modern</h1>
+        <p class="text-xl mb-8 opacity-90">Kelola kehadiran karyawan dengan mudah dan efisien</p>
+        <div class="flex justify-center space-x-4">
+            <a href="{{ url_for('presensi') }}" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                <i class="fas fa-clock mr-2"></i>Mulai Presensi
+            </a>
+            <a href="{{ url_for('dashboard') }}" class="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                <i class="fas fa-chart-bar mr-2"></i>Lihat Dashboard
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Fitur Unggulan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="text-center p-6">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-clock text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Presensi Real-time</h3>
+                <p class="text-gray-600">Catat kehadiran secara real-time dengan antarmuka yang user-friendly</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="text-center p-6">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-chart-bar text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Analytics Dashboard</h3>
+                <p class="text-gray-600">Pantau data kehadiran dengan dashboard yang informatif dan interaktif</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="text-center p-6">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-mobile-alt text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Responsive Design</h3>
+                <p class="text-gray-600">Akses dari berbagai perangkat dengan desain yang mobile-friendly</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2" id="totalKaryawan">3</div>
+                <div class="text-gray-600">Total Karyawan</div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow text-center">
+                <div class="text-3xl font-bold text-green-600 mb-2" id="hadirHariIni">0</div>
+                <div class="text-gray-600">Hadir Hari Ini</div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow text-center">
+                <div class="text-3xl font-bold text-orange-600 mb-2" id="totalPresensi">0</div>
+                <div class="text-gray-600">Total Presensi</div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow text-center">
+                <div class="text-3xl font-bold text-purple-600 mb-2" id="rataKehadiran">0%</div>
+                <div class="text-gray-600">Rata-rata Kehadiran</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Simple stats update (in real app, you'd fetch from API)
+document.addEventListener('DOMContentLoaded', function() {
+    // These would typically come from an API
+    document.getElementById('hadirHariIni').textContent = '0';
+    document.getElementById('totalPresensi').textContent = '0';
+    document.getElementById('rataKehadiran').textContent = '0%';
+});
+</script>
+{% endblock %}
